@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Set all fonts to Helvetica as requested */
+  --font-sans: Helvetica, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: Helvetica, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: Helvetica, "Helvetica Neue", Arial, sans-serif;
+
+  /* Sophisticated Dark Jade Color Palette */
+  --color-jade-bg: #091a18;
+  --color-jade-dark: #0d2622;
+  --color-jade-mid: #1b4d44;
+  --color-jade-accent: #3ea891;
+  --color-jade-glow: #76e1c9;
+  --color-text-main: #e6f2f0;
+  --color-text-dim: #8ba8a3;
+  --color-jade-glass: rgba(27, 77, 68, 0.2);
+
+  /* Mapping for existing classes to support the new theme */
+  --color-jade-50: #091a18;   /* bg */
+  --color-jade-100: #0d2622;  /* dark */
+  --color-jade-200: #1b4d44;  /* mid */
+  --color-jade-300: #3ea891;  /* accent */
+  --color-jade-400: #76e1c9;  /* glow */
+  --color-jade-500: #3ea891;  /* accent */
+  --color-jade-600: #76e1c9;  /* glow */
+  --color-jade-700: #e6f2f0;  /* text main */
+  --color-jade-800: #8ba8a3;  /* text dim */
+  --color-jade-900: #0d2622;
+  --color-jade-950: #091a18;
+}
+
+@layer base {
+  body {
+    @apply bg-jade-bg text-text-main antialiased selection:bg-jade-accent selection:text-jade-bg overflow-x-hidden;
+    font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
+  }
+  
+  /* Hide scrollbars on mobile and tablet as requested */
+  @media (max-width: 1024px) {
+    * {
+      -ms-overflow-style: none !important;
+      scrollbar-width: none !important;
+    }
+    *::-webkit-scrollbar {
+      display: none !important;
+    }
+  }
+
+  /* Premium Custom Scrollbar Implementation */
+  @media (min-width: 1025px) {
+    /* Chrome, Edge, Safari */
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(27, 77, 68, 0.4); /* Transparent Jade Mid */
+      border-radius: 20px;
+      border: 1px solid transparent;
+      background-clip: content-box;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(62, 168, 145, 0.7); /* Jade Accent focus */
+      background-clip: content-box;
+    }
+
+    ::-webkit-scrollbar-thumb:active {
+      background: #76e1c9; /* Jade Glow active */
+      background-clip: content-box;
+    }
+  }
+
+  /* Firefox Support */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(27, 77, 68, 0.4) transparent;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer components {
+  /* Targeted elements from user selection - Helvetica, no capslock, capitalize beginning */
+  div#root:nth-of-type(1) > div:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > h3:nth-of-type(1),
+  div#root:nth-of-type(1) > div:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > h3:nth-of-type(1),
+  div#root:nth-of-type(1) > div:nth-of-type(1) > main:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(3) > div:nth-of-type(1) > h3:nth-of-type(1) {
+    font-family: "Helvetica", "Helvetica Neue", Arial, sans-serif !important;
+    text-transform: none !important;
+    font-style: normal !important;
+    letter-spacing: normal !important;
+  }
+
+  .jade-card {
+    @apply bg-jade-dark border border-jade-mid rounded-xl p-5 shadow-[0_10px_30px_rgba(0,0,0,0.3)];
+  }
+  
+  .pane-title {
+    @apply font-serif italic text-sm uppercase tracking-[2px] text-jade-accent border-l-3 border-jade-accent pl-3 mb-6;
+  }
+
+  .jade-glass {
+    @apply bg-jade-glass backdrop-blur-md border border-white/5 shadow-xl;
+  }
+}
+
