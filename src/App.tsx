@@ -1437,7 +1437,7 @@ if (selectedPayment?.id === 'qris') {
         <div className="grid md:grid-cols-2 gap-8 items-start">
             <div className="relative w-full max-w-[360px] mx-auto rounded-3xl overflow-hidden shadow-2xl border border-[#091a18]/10 bg-white">
               <img 
-                src="/qris-static.png" 
+                src="../qris-static.png" 
                 alt="QRIS Payment Poster" 
                 className="w-full h-auto block"
                 referrerPolicy="no-referrer"
